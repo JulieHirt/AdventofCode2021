@@ -11,15 +11,17 @@ print(lines)
 #returns the movement command (up down forward) and the number of spaces
 def getcommand(inputline):
     """returns the direction and number of spaces"""
-    spaceindex = 0
     index = 0
     for i in inputline:
         if i == " ":
-            spaceindex = i
             break #stop when it gets to a space
         index += 1
     print("the space is at index", index)
-    
+    movementcommand = inputline[:index]
+    numspaces = inputline[index+1:index+2]
+    print("the letters before the space are", inputline[:index])
+    print("the number right after the space is", inputline[index+1:index+2])
+    return movementcommand,numspaces    
 
 getcommand("down 4\n")
 
