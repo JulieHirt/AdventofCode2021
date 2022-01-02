@@ -10,8 +10,18 @@ for line in lines:
     betterlines.append(newline)
 
 print(betterlines)
+#divide into sliding sets of 3 and print all sets
+#for i in range(len(betterlines)):
+for i in range(5):
+    index1 = i
+    index2 = i+1
+    index3 = i+2
+    print("indexes", index1," ",index2, " ", index3)
+    print("set of 3 numbers",betterlines[index1]," ", betterlines[index2]," ", betterlines[index3])
 
 
+#old code
+"""
 number1A = betterlines[0]
 number2A = betterlines[1]
 number3A = betterlines[2]
@@ -49,4 +59,5 @@ print("numincreases is",numincreases)
 
 #higher than 180
 #lower than 1807
+"""
 input("press enter to exit")
