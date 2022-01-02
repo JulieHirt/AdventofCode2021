@@ -2,7 +2,7 @@
 #read from text file
 text_file = open("day2data.txt", "r")
 lines = text_file.readlines()
-print(lines)
+#print(lines)
 
 #takes a line as input such as "forward 7" or "up 8"
 #returns the direction (up down forward) and the number of spaces
@@ -19,14 +19,11 @@ def getcommand(inputline):
     #print("the number right after the space is", inputline[index+1:index+2])
     return direction, numspaces    
 
-#horizontalposition and depth are calculated based on the movements
-#ie "forward 5" adds 5 to horizontalposition
-horizontalposition = 0
-depth = 0
 
 
 def move(direction, numspaces, horizontalposition, depth):
     """calculates new position based on movement command"""
+    numspaces = int(numspaces)
     if direction == "down":
         depth += numspaces
     elif direction == "forward":
@@ -37,13 +34,21 @@ def move(direction, numspaces, horizontalposition, depth):
         print("warning! invalid direction given! No movement.")
     return horizontalposition, depth
 
-horizontalposition, depth = move("up", 7, 0, 0)
-print(horizontalposition, depth)
+#horizontalposition and depth are calculated based on the movements
+#ie "forward 5" adds 5 to horizontalposition
+horizontalposition = 0
+depth = 0
+
+#loop through each command and move the ship
+for line in lines:
+    #print(line)
+    direction, numspaces = getcommand(line)
+    horizontalposition, depth = move(direction, numspaces, horizontalposition, depth)
 
 
+print("horizontalposition: ", horizontalposition, "depth: ", depth)
 
-
-
+print("horizontalposition*depth =", horizontalposition*depth)
 
 """
 #convert all to int and make new list
