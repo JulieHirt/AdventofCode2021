@@ -52,7 +52,16 @@ for i in range(len(gamma)):
 
 print("epsilon is", epsilon)
         
-    
+#convert to decimal
+#note: bin() is used to go from binary to decimal
+gamma_int = int(gamma, 2) # 2 us because we are staring in binary (base 2)
+epsilon_int = int(epsilon, 2)
 
+print("gamma as decimal", gamma_int)
+print("epsilon as decimal", epsilon_int)
+
+answer = gamma_int*epsilon_int
+
+print("gamma*epsilon =",answer)
 
 input("press enter to exit")
