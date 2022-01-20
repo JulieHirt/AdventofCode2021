@@ -38,7 +38,21 @@ for i in range(5): #5 for test data, change to 12 for real data
 
 print("gamma is", gamma)
         
+
+#epsilon is the opposite of gamma
+#every 0 in gamma is a 1 in epsilon
+epsilon = ""
+for i in range(len(gamma)):
+    if gamma[i] == "0":
+        epsilon = epsilon + "1"
+    elif gamma[i] == "1":
+        epsilon = epsilon + "0"
+    else:
+        print("error, character in gamma is not 0 or 1")
+
+print("epsilon is", epsilon)
         
+    
 
 
 input("press enter to exit")
