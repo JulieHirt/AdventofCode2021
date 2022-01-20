@@ -1,6 +1,6 @@
 #day 2
 #read from text file
-text_file = open("testdata.txt", "r")
+text_file = open("day3data.txt", "r")
 lines = text_file.readlines() #global
 #print(lines)
 
@@ -33,7 +33,7 @@ def calc_gamma(gamma,index):
         print("error, equal amounts of 1 and 0")
     return gamma
 
-for i in range(5): #5 for test data, change to 12 for real data
+for i in range(12): #5 for test data, 12 for real data
     gamma = calc_gamma(gamma,i)
 
 print("gamma is", gamma)
