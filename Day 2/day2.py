@@ -21,29 +21,31 @@ def getcommand(inputline):
 
 
 
-def move(direction, numspaces, horizontalposition, depth):
+def move(aim, direction, numspaces, horizontalposition, depth):
     """calculates new position based on movement command"""
     numspaces = int(numspaces)
     if direction == "down":
-        depth += numspaces
+        aim += numspaces
     elif direction == "forward":
         horizontalposition += numspaces
+        depthincreaseamt = aim*numspaces
+        depth += depthincreaseamt
     elif direction == "up":
-        depth -= numspaces
+        aim -= numspaces
     else:
         print("warning! invalid direction given! No movement.")
-    return horizontalposition, depth
+    return horizontalposition, depth, aim
 
 #horizontalposition and depth are calculated based on the movements
 #ie "forward 5" adds 5 to horizontalposition
 horizontalposition = 0
 depth = 0
-
+aim = 0
 #loop through each command and move the ship
 for line in lines:
     #print(line)
     direction, numspaces = getcommand(line)
-    horizontalposition, depth = move(direction, numspaces, horizontalposition, depth)
+    horizontalposition, depth, aim = move(aim, direction, numspaces, horizontalposition, depth)
 
 
 print("horizontalposition: ", horizontalposition, "depth: ", depth)
