@@ -38,16 +38,40 @@ def is_0or1_most(index):
     return mostcommon
 
 
+#determine oxygen generator rating
+oxygen_generator_rating = "null"
+remaininglines = [] #store the binary numbes not yet eliminated from list
+print("remaininglines at beginning")
+print(remaininglines)
 
-index = 0 #doing for first digit only
+
+#loop through lines once at index 0
 digit = is_0or1_most(0)
 print(digit)
-remaininglines = [] #store the binary numbes not yet eliminated from list
 for line in lines:
-    if line[index] == digit:
+    if line[0] == digit:
         remaininglines.append(line)
+print("remaininglines after first iteration")
+print(remaininglines)
+
+
+lines= [] #empty the list
+#then loop through remaininglines
+#skip index 0
+#range(1, 5) will count 1234
+for index in range(1, 5):#5 for test data, 12 for real data
+    digit = is_0or1_most(index)
+    print(digit)
+    for line in remaininglines:
+        if line[index] == digit:
+            lines.append(line)
+    print("remaininglines at index",index, remaininglines)
+    print("lines at index",index, lines)
+    if len(remaininglines) == 1: #if there is only 1 number left
+        oxygen_generator_rating = remaininglines[0] #first and only values in list
 
 print(remaininglines)
+print("oxygen_generator_rating is", oxygen_generator_rating)
 """
 for i in range(12): #5 for test data, 12 for real data
     print(i)
